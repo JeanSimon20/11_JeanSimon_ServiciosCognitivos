@@ -7,29 +7,47 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:fn="http://java.sun.com/jsp/jstl/functions">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Analisis de Sentimientos</title>
     </h:head>
     <h:body>
-           <h:form>
-            <div class="ui-g-6">  
-                <p:panelGrid columns="1">
-                    <p:commandButton value="Ingresar texto" update="resultado Abusivo Odio Ninguno" action="#{textoC.text()}" />
-                    <p:inputTextarea value="#{textoC.modelo.text}" id="resultado" rows="5" cols="30" />
-                </p:panelGrid>
-            </div>
+        <center>
+            <style>
+                body {background-image: url("https://mobimg.b-cdn.net/v3/fetch/df/df31a508e352c47e9aa9290e99c40929.jpeg");
+                }
+            </style>
+        </center>
 
-            <div class="ui-g-6">
-                <p:panelGrid columns="2">
-                    <p:outputLabel style="font-weight: bold">Abusivo</p:outputLabel>
-                    <p:outputLabel id="Abusivo" value="#{textoC.modelo.abusivo *100}"> %</p:outputLabel>
-                    <p:outputLabel style="font-weight: bold">ODio</p:outputLabel>
-                    <p:outputLabel id="Odio" value="#{textoC.modelo.odio *100}"> %</p:outputLabel>
-                    <p:outputLabel style="font-weight: bold">Ninguno</p:outputLabel>
-                    <p:outputLabel id="Ninguno" value="#{textoC.modelo.ninguno *100}"> %</p:outputLabel>
-                   
+        <center>
+            <h3>
+                <h1 style="font: oblique bold 220% cursive; color: yellow"> Aplicación de Analisis de Sentimientos </h1>
+            </h3>
+            <center style="font: oblique bold 220% cursive; color: red">Comprenda el sentimiento social de su marca, producto o servicio mientras monitorea las conversaciones en línea.</center><br/>
+            <center style="font: oblique bold 220% cursive; color: red">El análisis de sentimiento es una minería contextual de texto que identifica y extrae información subjetiva en el material de origen.</center><br/>
+
+            <h:form>
+
+                <p:panelGrid columns="1">
+                    <f:facet name= "header">Ingrese un texto</f:facet>
+                    <p:inputTextarea value="#{textoC.modelo.text}" id="resultado" rows="5" cols="50" />
+                    <p:commandButton value="Enviar"  update="resultado sisarcarmo nosarcarmo" action="#{textoC.text()}"/>
                 </p:panelGrid>
-            </div>
-        </h:form>
+                <br></br>
+
+                  <p:panelGrid columns="2">
+                    <p:panelGrid columns="1">
+                        <p:outputLabel style="font-weight: bold">Respuesta Negativa</p:outputLabel>
+                        <p:outputLabel style="font-weight: bold" value="#{textoC.modelo.abusivo*100}" id="sisarcarmo">%</p:outputLabel>
+                        <p:graphicImage url="https://w7.pngwing.com/pngs/733/996/png-transparent-negative-others-miscellaneous-photography-shoe-thumbnail.png" style="width: 100px"/>
+                    </p:panelGrid>
+                    <p:panelGrid columns="1">
+                        <p:outputLabel style="font-weight: bold">Respuesta Positiva</p:outputLabel>
+                        <p:outputLabel style="font-weight: bold" value="#{textoC.modelo.ninguno*100}" id="nosarcarmo">%</p:outputLabel>
+                        <p:graphicImage url="https://w7.pngwing.com/pngs/497/647/png-transparent-negative-honest-s-hand-photography-artwork-thumbnail.png" style="width: 90px"/>
+                    </p:panelGrid>
+                </p:panelGrid>
+
+            </h:form>
+        </center>
     </h:body>
 </html>
 
